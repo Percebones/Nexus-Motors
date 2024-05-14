@@ -28,7 +28,6 @@
 
 
 
-  </nav>
   <div class="msb" id="msb">
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
@@ -160,7 +159,6 @@
                 </div>
               </div>
               <div class="card" id="meuCard3">
-                <!--  -->
                 <h3>Exclusao de Pecas<button class="botao-card" onclick="abrefecha('conteudo3', 'meuCard3')">↓</button>
                 </h3>
                 <div class="conteudo-card" id="conteudo3">
@@ -169,12 +167,10 @@
                 </div>
               </div>
       </div>
-
-      <!--  -->
-      <div class="card" id="meuCard3">
-        <h3>Atualizacao de Pecas<button class="botao-card" onclick="abrefecha('conteudo3', 'meuCard3')">↓</button>
+      <div class="card" id="meuCard4">
+        <h3>Atualizacao de Pecas<button class="botao-card" onclick="abrefecha('conteudo4', 'meuCard4')">↓</button>
         </h3>
-        <div class="conteudo-card" id="conteudo3">
+        <div class="conteudo-card" id="conteudo4">
 
 
         </div>
