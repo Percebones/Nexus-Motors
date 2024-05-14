@@ -82,6 +82,7 @@
   }
   
   main {
+    z-index: 3;
     top: 0;
     min-height: calc(100% - 50px);
     overflow-y: auto;
@@ -107,6 +108,7 @@
 }
 
 footer {
+    z-index: 6;
     position: fixed;
     bottom: 0;
     left: 0;

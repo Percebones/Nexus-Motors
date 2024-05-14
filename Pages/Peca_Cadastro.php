@@ -21,7 +21,7 @@
   <?php
   $sql = "SELECT pecas.id, pecas.nome, pecas.preco, pecas.estoque, fornecedores.nome as fornecedor FROM pecas
  INNER JOIN fornecedores ON pecas.Fk_Fornecedor = fornecedores.id
- ORDER BY pecas.id DESC";
+ ORDER BY pecas.id";
 
   $result = $conn->query($sql);
   ?>
