@@ -9,3 +9,8 @@ Página inicial com apresentação da empresa e destaques.
 Páginas administrativas para gestão de modelos, peças e vendas.
 
 ![image](https://github.com/Percebones/Nexus-Motors/assets/141276166/c5bc3df0-22f2-454e-9bdb-d2008e5fc79f)
+
+
+Criado com a utilizacao do XAMP
+
+
