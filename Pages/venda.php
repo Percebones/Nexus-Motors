@@ -16,6 +16,24 @@
 </head>
 
 <body>
+<?php
+  session_start();
+  if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
+    header('location:visitante.php');
+  }
+
+  $logado = $_SESSION['login']; 
+  // Very simple query SQL, pois seleciona informações sobre vendas, incluindo o cálculo do valor total da venda e bla bla bla.
+  // considerando a quantidade vendida e o valor do carro, através de uma junção interna com a tabela de carros.
+  $sql = "SELECT vendas.id, vendas.quantidade, vendas.data, vendas.quantidade * carros.valor as valor,vendas.carro_id
+          FROM vendas
+          INNER JOIN carros ON vendas.carro_id = carros.id
+          ORDER BY vendas.id";
+
+  // Executa a consulta SQL no banco de dados e armazena o resultado na variável ali V << 
+  $result = $conn->query($sql); // aqui ó
+?>
+
     </nav>
     <div class="msb" id="msb">
         <nav class="navbar navbar-default" role="navigation">
@@ -38,15 +56,7 @@
                     <ul>
                         <div class="topo">
                         </div>
-                        <div class="usuario">
-                            <a href="Perfil.php">
-                                <img src='..\imgs\usuario.png' alt='eu' class="imagem-usuario">
-                            </a>
-                            <div>
-                                <p class="bold">Thiago P. Silva</p>
-                                <p>Cargo: Admin</p>
-                            </div>
-                        </div>
+
                         <ul>
                             <li>
                                 <a href="Home.php">
@@ -55,36 +65,10 @@
                                 </a>
                                 <span class="tooltip">Home</span>
                             </li>
+
+                            
                             <li>
-                                <a href="fornecedor.php">
-                                    <i class="fa-solid fa-truck-fast"></i>
-                                    <span class="nav-item">Fornecedor</span>
-                                </a>
-                                <span class="tooltip">Fornecedor</span>
-                            </li>
-                            <li>
-                                <a href="Veiculos.php">
-                                    <i class="bx bxs-car"></i>
-                                    <span class="nav-item">Automovel</span>
-                                </a>
-                                <span class="tooltip">Automoveis</span>
-                            </li>
-                            <li>
-                                <a href="peca_Cadastro.php">
-                                    <i class="bx bxs-wrench"></i>
-                                    <span class="nav-item">Pecas</span>
-                                </a>
-                                <span class="tooltip">Pecas</span>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="bx bxs-cog"></i>
-                                    <span class="nav-item">Configuracao</span>
-                                </a>
-                                <span class="tooltip">Configuracao</span>
-                            </li>
-                            <li>
-                                <a href="" onclick="logout()">
+                                <a href="logout.php" onclick="logout()">
                                     <i class="bx bxs-log-out"></i>
                                     <span class="nav-item">logout</span>
                                 </a>
@@ -106,30 +90,26 @@
                                 <h3>Lista de vendas<button class="botao-card" onclick="abrefecha('conteudo1', 'meuCard1')">↓</button>
                                 </h3>
                                 <div class="conteudo-card" id="conteudo1">
-                                    <?php
-
-                                    ?>
+                                <?php
+    while ($coluna = mysqli_fetch_array($result)) {//você pode acessar os valores dessas colunas tanto pelo seu índice numérico e tbm se n tiver mais linha é null então.
+      if ($result->num_rows > 0) {
+                                    echo "<table border = 1 width = 100%>"; // CSS improvisado< V V V.
+                                    echo "<h2></h2>";
+                                    echo "</tr><th>id vendas</th><th>id carro</th><th>Quantidade de vendas</th></th><th>Data</th><th>Valor</th></tr>";
+    while ($row = $result->fetch_assoc()) { // Só percorre sobre as linhas de um conjunto de resultados de uma consulta ao banco de dados usando mysqli
+        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["carro_id"] . "</td><td>" . $row["quantidade"] . "</td><td>" . $row["data"] . "</td><td>" . $row["valor"] . "</td></tr>";
+                                    }
+                                    } else {
+                                    echo "Nenhuma venda registrada esta semana.";
+                                    }
+                                }
+                                echo '</table>';
+                                ?>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="card" id="meuCard2">
-                                <h3>Cadastrar nova venda<button class="botao-card" onclick="abrefecha('conteudo2', 'meuCard2')">↓</button>
-                                </h3>
-                                <div class="conteudo-card" id="conteudo2">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="nome">Codigo de identificacao:</label>
-                                            <input type="number" id="id" name="id" required>
-                                        </div>
-                                        <button type="submit" class="btn-cadastro">Cadastrar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    
             </div>
         </div>
 

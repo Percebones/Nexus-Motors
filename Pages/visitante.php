@@ -14,11 +14,27 @@
 </head>
 <?php
 session_start();
-if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
-    header('location:visitante.php');
-}
+if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) { ?>
 
-$logado = $_SESSION['login']; ?>
+    <li>
+        <a href="fornecedor.php">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span class="nav-item">Fornecedor</span>
+        </a>
+        <span class="tooltip">Fornecedor</span>
+    </li>
+    <li>
+        <a href="Veiculos.php">
+            <i class="bx bxs-car"></i>
+            <span class="nav-item">Automovel</span>
+        </a>
+        <span class="tooltip">Automoveis</span>
+    </li>
+    <li>
+
+    <?php } else { ?>
+
+<?php } 
 
 
 ?>
@@ -60,13 +76,7 @@ $logado = $_SESSION['login']; ?>
                             </div>
                             <div class="usuario">
 
-                                <img src='..\imgs\usuario.png' alt='eu' class="imagem-usuario">
-
                                 <div>
-
-                                    <p class="bold">
-                                    <h1>ﾠ<?php echo "$logado"  ?></h1>
-                                    </p>
 
                                 </div>
                             </div>
@@ -75,47 +85,20 @@ $logado = $_SESSION['login']; ?>
                         <ul>
 
                             <li>
-                                <a href="fornecedor.php">
+                                <a href="fornecedorlst.php">
                                     <i class="fa-solid fa-truck-fast"></i>
                                     <span class="nav-item">Fornecedor</span>
                                 </a>
                                 <span class="tooltip">Fornecedor</span>
                             </li>
                             <li>
-                                <a href="Veiculos.php">
-                                    <i class="bx bxs-car"></i>
-                                    <span class="nav-item">Automovel</span>
-                                </a>
-                                <span class="tooltip">Automoveis</span>
-                            </li>
-                            <li>
-                                <a href="estoque.php">
+                                <a href="estoquelst.php">
                                     <i class="fa-solid fa-cubes"></i>
                                     <span class="nav-item">Estoque</span>
                                 </a>
                                 <span class="tooltip">Fornecedor</span>
                             </li>
-                            <li>
-                                <a href="Relatorio_De_Vendas.php">
-                                    <i class="fa-solid fa-list-check"></i>
-                                    <span class="nav-item">Relatorio</span>
-                                </a>
-                                <span class="tooltip">Relatorio</span>
-                            </li>
-                            <li>
-                                <a href="venda.php">
-                                    <i class="fa-solid fa-comments-dollar"></i>
-                                    <span class="nav-item">Vendas</span>
-                                </a>
-                                <span class="tooltip">Vendas</span>
-                            </li>
-                            <li>
-                                <a href="peca_Cadastro.php">
-                                    <i class="bx bxs-wrench"></i>
-                                    <span class="nav-item">Pecas</span>
-                                </a>
-                                <span class="tooltip">Pecas</span>
-                            </li>
+                           
 
 
 

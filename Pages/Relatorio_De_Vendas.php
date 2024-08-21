@@ -13,6 +13,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<?php
+  session_start();
+  if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
+    header('location:visitante.php');
+  }
+
+  $logado = $_SESSION['login']; ?>
+?>
 
 <body>
   <header>
@@ -55,11 +63,10 @@
             </div>
             <div class="usuario">
               <a href="Perfil.php">
-                <img src='..\imgs\usuario.png' alt='eu' class="imagem-usuario">
+              
               </a>
               <div>
-                <p class="bold">Thiago P. Silva</p>
-                <p>Cargo: Admin</p>
+               
               </div>
             </div>
             <ul>
@@ -98,13 +105,7 @@
                 </a>
                 <span class="tooltip">Vendas</span>
               </li>
-              <li>
-                <a href="">
-                  <i class="bx bxs-cog"></i>
-                  <span class="nav-item">Configuracao</span>
-                </a>
-                <span class="tooltip">Configuracao</span>
-              </li>
+              
               <li>
                 <a href="" onclick="logout()">
                   <i class="bx bxs-log-out"></i>

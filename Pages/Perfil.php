@@ -86,13 +86,7 @@
                 </a>
                 <span class="tooltip">Vendas</span>
               </li>
-              <li>
-                <a href="">
-                  <i class="bx bxs-cog"></i>
-                  <span class="nav-item">Configuracao</span>
-                </a>
-                <span class="tooltip">Configuracao</span>
-              </li>
+              
               <li>
                 <a href="" onclick="logout()">
                   <i class="bx bxs-log-out"></i>
